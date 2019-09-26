@@ -174,8 +174,5 @@ function gameplay() {
 
 function exitGame() {
 	window.open('../index.html', "_self");
-  // if (confirm("Do you want to exit game?")) {
-    // close();
-  // }
 }
 
