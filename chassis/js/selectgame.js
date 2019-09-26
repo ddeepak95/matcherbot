@@ -3,8 +3,6 @@ var path;
 var gData;
 var def = [
     {
-    // rightMsg: "That's right",
-    // wrongMsg: "Try again",
     wrongSound: "sounds/beep.wav", //Wrong answer
     resultSound: "sounds/result.wav", //Result
     rightSound: "sounds/success.wav", //Right answer
