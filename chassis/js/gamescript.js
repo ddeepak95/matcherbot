@@ -173,6 +173,6 @@ function gameplay() {
 }
 
 function exitGame() {
-	window.open('../index.html', "_self");
+	window.open('../startgame.html', "_self");
 }
 

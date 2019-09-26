@@ -60,7 +60,7 @@ function newGame()
 {
     indexbtnSound();
     artyom.say("Let's begin!");    
-	window.open('./chassis/gameplay.html', 'window','toolbar=no, menubar=no, resizable=yes');
+	window.open('./chassis/gameplay.html', "_self");
 }
 
 function generateGame()

@@ -65,7 +65,7 @@ function showTableData()
 function backSelect()
 {
 	btnSound();
-	window.open("../index.html", "_self");
+	window.open("../startgame.html", "_self");
 }
 
 function addRow()
