@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Matcherbot</title>
+    <!-- <script type="text/javascript" src="chassis/js/mespeak/mespeak.js"></script> -->
+    <script src="chassis/js/artyom.window.min.js"></script>	    	
+	<script src="chassis/js/selectgame.js"></script>		
+	<link rel="stylesheet" type="text/css" href="chassis/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="chassis/css/hover-min.css" />
+	<link rel="manifest" href="chassis/manifest.json">					
+</head>
+<body id="theBody" onload="startVoice()">
+<div id="selectFrame">	
+	<img id="logo" src="chassis/img/logo.png" ondblclick="generateGame()">
+
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+	  <!-- Modal content -->
+	  <div class="modal-content">
+	    <span class="closeModal">&times;</span>
+	    <p title="Game Name" id="gameNameModal"></p>	    
+	    <p title="Game Duration" id="gameTimeModal"></p>
+	    <div id="objectsTable"></div>
+	  </div>
+	</div>	
+
+
+	<div class="chooseGameDiv">
+		<img id="chooseGameBtn" class="hvr-rotate" src="chassis/img/sltgame.png" onclick="document.getElementById('filePath').click()">
+ 		<input type='file' style="display: none;" title="Select game" value="Select game" id="filePath" onchange="getGameFile()">
+	</div>
+
+
+
+	<div id="gameInfoDiv">		
+		<span id="showGameName"></span>
+		<!-- Trigger/Open The Modal -->
+		<img style="display: none;" id="viewGameInfoBtn" class="hvr-forward" src="chassis/img/vconf.png" onclick="document.getElementById('filePath').click()">
+	</div>	
+	<img style="display: none;" id="beginGame" class="hvr-grow" src="chassis/img/bgngame.png" onclick="newGame()">
+	<script type="text/javascript" src="chassis/js/modal.js"></script>	
+</div>	
+</body>
+</html>
