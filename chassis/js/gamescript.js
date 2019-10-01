@@ -133,6 +133,8 @@ function endgame()
 	point=0;
 	fpoint=0;
 	z=0;
+	life=localStorage.getItem('gameLives');
+	resetLives();
 	clearInterval(tintervalout);	
 	clearTimeout(tout);
   	random = Math.floor(Math.random() * Math.floor(qlistlen));	
@@ -158,7 +160,6 @@ function showresult()
 		check=2;
 	}
 	document.getElementById("timerCircle").style.backgroundColor = null;	
-	// document.removeEventListener('keydown', readEvent);
 	audio = new Audio(def[0].resultSound);
 	audio.play();	
 	document.getElementById("game").style.display = 'none';
