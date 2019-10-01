@@ -1,5 +1,5 @@
 var gData;
-var template={"gameName":"Enter Game Name","gameDuration":30,"gameData":[{"question":"Enter Question","key":"Select Key","answer":"Type some instruction"}]}
+var template={"gameName":"Enter Game Name","gameDuration":30,"gameLives":3,"gameData":[{"question":"Enter Question","key":"Select Key","answer":"Type some instruction"}]}
 function getGameFileManage()
 {
     btnSound();
@@ -37,10 +37,12 @@ function showTableData()
 	document.getElementById("dataFrame").style.display = null;		
 	console.log(gData);
     duration= document.getElementById("gameTime");
-    nameId= document.getElementById("gameNameId");    
+    nameId= document.getElementById("gameNameId");
+    livesId= document.getElementById("gameLivesId");        
     console.log(gData.gameName);    
     nameId.innerHTML = gData.gameName;	
-    duration.innerHTML = gData.gameDuration;	    
+    duration.innerHTML = gData.gameDuration;
+    livesId.innerHTML = gData.gameLives;    	    
 	table = new Tabulator("#objectsTable", {
  	// height:100%, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
  	data:gData.gameData, //assign data to table
@@ -77,11 +79,12 @@ var tempData,tempGameName,tempGameDuration;
 function saveFile()
 {
 	tempGameName=nameId.innerText;
-	tempGameDuration=duration.innerText;	
+	tempGameDuration=duration.innerText;
+	tempGameLives=livesId.innerText;		
 	console.log(tempGameName,tempGameDuration);
 	var tableData=table.getData();
 	var stringGameData=JSON.stringify(tableData);
-	tempData='{"gameName":"'+tempGameName+'","gameDuration":'+tempGameDuration+',"gameData":'+stringGameData+'}';
+	tempData='{"gameName":"'+tempGameName+'","gameDuration":'+tempGameDuration+',"gameLives":'+tempGameLives+',"gameData":'+stringGameData+'}';
 	console.log(tempData);
 	var blob = new Blob([tempData],{type:"application/json"});
 	saveAs(blob, tempGameName+".json");

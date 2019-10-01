@@ -3,7 +3,8 @@ var path;
 var gData;
 var def = [
     {
-    wrongSound: "sounds/beep.wav", //Wrong answer
+    wrongSound: "sounds/wrong.wav", //Wrong answer
+    gameOverSound: "sounds/beep.wav",
     resultSound: "sounds/result.wav", //Result
     rightSound: "sounds/success.wav", //Right answer
     btnSound: "sounds/btn.wav",
@@ -45,16 +46,15 @@ function getGameFile()
             console.log("Game Name "+gData.gameName);
             document.getElementById("showGameName").innerHTML = gData.gameName;
             localStorage.setItem('gameName', gData.gameName);        
-            localStorage.setItem('gameDuration', gData.gameDuration);        
+            localStorage.setItem('gameDuration', gData.gameDuration);
+            localStorage.setItem('gameLives', gData.gameLives);                    
             localStorage.setItem('gameData', JSON.stringify(gData.gameData));  
             console.log(gData.gameData);    
             artyom.say('Game Selected');             
             document.getElementById("viewGameInfoBtn").style.display = null;
             document.getElementById("beginGame").style.display = null;             
         }
-
 }
-
 
 function newGame()
 {
@@ -76,7 +76,6 @@ function generateGame()
         alert("Access Denied");
     }
 }
-
 
 function startVoice()
 {
