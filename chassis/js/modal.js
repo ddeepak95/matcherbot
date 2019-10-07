@@ -31,7 +31,9 @@ btn.onclick = function() {
 	 	row.insertCell(1).innerHTML = "<b>Key</b>";
 	 	row.insertCell(2).innerHTML = "<b>Instructions</b>";
 		document.getElementById("gameTimeModal").innerHTML = gData.gameDuration+" Secs";
-		document.getElementById("gameNameModal").innerHTML = gData.gameName;		
+		document.getElementById("gameNameModal").innerHTML = gData.gameName;
+		document.getElementById("gameLivesModal").innerHTML = gData.gameLives;	
+		document.getElementById("gameAudioModal").innerHTML = gData.gameAudio;						
   modal.style.display = "block";
 }
 

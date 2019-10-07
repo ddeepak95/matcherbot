@@ -47,7 +47,8 @@ function getGameFile()
             document.getElementById("showGameName").innerHTML = gData.gameName;
             localStorage.setItem('gameName', gData.gameName);        
             localStorage.setItem('gameDuration', gData.gameDuration);
-            localStorage.setItem('gameLives', gData.gameLives);                    
+            localStorage.setItem('gameLives', gData.gameLives);
+            localStorage.setItem('gameAudio', gData.gameAudio);                                 
             localStorage.setItem('gameData', JSON.stringify(gData.gameData));  
             console.log(gData.gameData);    
             artyom.say('Game Selected');             

@@ -15,6 +15,7 @@ console.log(qlist_temp);
 var qlist=qlist_temp;
 qlistlen = qlist.length;
 var gname=localStorage.getItem('gameName');
+var gaudio=localStorage.getItem('gameAudio');
 console.log("Game Name: "+gname);
 document.getElementById("gamePageTitle").innerHTML = gname+" | Matcherbot";
 
@@ -73,6 +74,27 @@ function readEvent(event)
     gameplay();	
 }
 
+function changeQuestion()
+{
+  	document.getElementById("ques").innerHTML = qlist[qnum].question;
+  	if (qlist[qnum].hint==undefined)
+  	{
+  	  	document.getElementById("hint").innerHTML = "   ";	
+  	}
+  	else
+  	{
+  	  	document.getElementById("hint").innerHTML = qlist[qnum].hint;  		
+  	} 		
+}
+
+function sayQuestion()
+{
+	if (gaudio==true)
+    {
+    	artyom.say(qlist[qnum].question); 
+    }	
+}
+
 function startgame()
 {
 	btnSound();
@@ -87,11 +109,11 @@ function startgame()
 	document.getElementById("startGameBtn").style.display = 'none';	
 	qnum=random;
 	document.getElementById("score").innerHTML = point;
-  	document.getElementById("ques").innerHTML = qlist[qnum].question;	
+	changeQuestion();	
   	if (z<1)
   	{
   		console.log("Say 1");
-		artyom.say(qlist[qnum].question);
+		sayQuestion();
 		z=z+1;   
   	}  		
    	tout=setTimeout(showresult, (t*1000));
@@ -119,8 +141,8 @@ function restartgame()
 	tout=setTimeout(showresult, (t*1000));
   	random = Math.floor(Math.random() * Math.floor(qlistlen));	
   	qnum=random;	
-    document.getElementById("ques").innerHTML = qlist[qnum].question; 	
-	artyom.say(qlist[qnum].question); 
+  	changeQuestion();
+ 	sayQuestion();
 }
 
 function endgame()
@@ -183,7 +205,7 @@ function showresult()
 function gameplay() {
 	qnum=random;	
 	document.getElementById("score").innerHTML = point;	
-  	document.getElementById("ques").innerHTML = qlist[qnum].question;
+	changeQuestion();
 	artyom.shutUp();  		
   	response=key;
   	if (check=="0")
@@ -215,8 +237,8 @@ function gameplay() {
 			audio.play();	
 	  	  	random = Math.floor(Math.random() * Math.floor(qlistlen));	
 	  	  	qnum=random;		
-	    	document.getElementById("ques").innerHTML = qlist[qnum].question;
-			artyom.say(qlist[qnum].question);     	
+	  	  	changeQuestion();
+			sayQuestion();   	
 	    	console.log(qlist[qnum].question);
 	    	point=point+1;
 	    	fpoint=point;  
@@ -234,7 +256,7 @@ function gameplay() {
 		    	document.getElementById("score").innerHTML = point;   		
 		  		audio = new Audio(def[0].wrongSound);
 				audio.play();
-				setTimeout(artyom.say(qlist[qnum].question),(2000));	
+				setTimeout(sayQuestion(),(2000)); 				
 				var lifeid='life#'+life;
 				console.log("Life ID="+lifeid);
 				document.getElementById(lifeid).src = 'img/nolife.png';

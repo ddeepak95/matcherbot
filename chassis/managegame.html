@@ -36,12 +36,19 @@
  			<td id="gameDetailsLable">Lives</td>
  			<td><p id="gameLivesId" contenteditable="true"></p></td>
  		</tr>
-	 		
+ 		<tr>
+ 			<td id="gameDetailsLable">Read Question</td>
+ 			<td id="gameAudioConfig"><label class="switch"> 
+			  	<input type="checkbox" id="audioCheck" onchange="audioCheck()">
+			  	<span class="slider round"></span>Enable Audio
+				</label>
+			</td>
+ 		</tr> 		
  		</tbody>
  	</table>
- 	<!-- <p style="margin: 0px">Tip: Do not add more than 6 lives</p> -->
-	<div><img id="addRowbtn" src="img/addQues.png" class="hvr-grow" onclick="addRow()"></div>			
+ 	<!-- <p style="margin: 0px">Tip: Do not add more than 6 lives</p> -->			
 	<div id="objectsTable"></div>
+	<div><img id="addRowbtn" src="img/addQues.png" class="hvr-grow" onclick="addRow()"></div>	
 	<img id="genFilebtn" src="img/genFile.png" class="hvr-grow" onclick="saveFile()">		
 	</div>
 </div>
