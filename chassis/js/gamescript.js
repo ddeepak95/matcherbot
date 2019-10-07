@@ -89,7 +89,7 @@ function changeQuestion()
 
 function sayQuestion()
 {
-	if (gaudio=true)
+	if (gaudio=="true")
     {
     	artyom.say(qlist[qnum].question); 
     }	
