@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-160430207-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-160430207-1');
+	</script>
+	<title>Matcherbot</title>
+    <script src="js/artyom.window.min.js"></script>	    	
+	<script src="js/selectgame.js"></script>		
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/hover-min.css" />
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+	<link rel="apple-touch-icon" href="images/matcherbot-icon-192.png">		
+	<link rel="manifest" href="/manifest.json">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+	<meta name="theme-color" content="#cfaf47"/>
+	<meta property="og:title" content="Matcherbot">
+	<meta property="og:description" content="Check out Matcherbot, a quizzing game based on Key Mapping. It can be best played with physical key tools like Makey Makey. You can create infinite number of games on your own. Works best on Desktop with Chrome browser">
+	<meta property="og:image" content="images/matcherbot-icon-310.png">
+	<meta property="og:url" content="https://matcherbot.online/">	
+	<meta name="apple-touch-icon" sizes="152x152" href="/images/matcherbot-icon-152.png">
+	<meta name="msapplication-TileImage" content="images/matcherbot-icon-144.png">  
+	<meta name="msapplication-TileColor" content="#FFFFFF">				
+</head>
+<body id="theBody" onload="startVoice()">
+<div class="alert" style="display: none;">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  Install <strong>Matcherbot</strong> to access offline!  
+  <button class="add-button">Install</button>
+</div>	
+<div id="selectFrame">	
+	<img id="logo" src="images/logo.png" ondblclick="generateGame()">
+	<p>New to the game? Check out the <a href="https://www.instructables.com/id/Play-With-MatcherBot/" target="_blank">Instructions</a>!</a></p>
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+	  <!-- Modal content -->
+	  <div class="modal-content">
+	    <span class="closeModal">&times;</span>
+	    <p title="Game Name" id="gameNameModal"></p>	    
+	    <p id="gameDetailsModal">
+	    	- Game Duration: <span title="Game Duration" id="gameTimeModal"></span> - 
+	    	Lives: <span id="gameLivesModal"></span> - 
+	    	Read questions: <span id="gameAudioModal"></span> - 
+	    </p>
+	    <div id="objectsTable"></div>
+	  </div>
+	</div>	
+
+
+	<div class="chooseGameDiv">
+		<img id="chooseGameBtn" class="hvr-rotate" src="images/sltgame.png" onclick="document.getElementById('filePath').click()">
+ 		<input type='file' style="display: none;" title="Select game" value="Select game" id="filePath" onchange="getGameFile()">
+	</div>
+
+
+
+	<div id="gameInfoDiv">		
+		<span id="showGameName"></span>
+		<!-- Trigger/Open The Modal -->
+		<img style="display: none;" id="viewGameInfoBtn" class="hvr-forward" src="images/vconf.png" onclick="document.getElementById('filePath').click()">
+	</div>	
+	<img style="display: none;" id="beginGame" class="hvr-grow" src="images/bgngame.png" onclick="newGame()">
+	<script type="text/javascript" src="js/modal.js"></script>	
+</div>
+
+<div id="footer">	
+	<div id="snackbar">A new version of this app is available. <a id="reload">Click here</a> to update.</div>
+	<p><a href="https://www.instructables.com/id/Play-With-MatcherBot/" target="_blank">Instructions</a> | <a href="/game_data/Common_Items_demo.json" download>Demo Game File</a> | <a href="https://github.com/ddeepak95/matcherbot" target="_blank">GitHub</a></p>
+	<p>Works best with Google Chrome Desktop</p>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Manage Games | Matcherbot</title>
+    <script src="js/artyom.window.min.js"></script>	
+	<script src="js/filesaver.js"></script>	    	
+	<script src="js/selectgame.js"></script>
+	<script src="js/managegame.js"></script>
+	<script src="js/tabulator/dist/js/tabulator.min.js"></script>	
+		
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/hover-min.css" />
+	<link rel="stylesheet" type="text/css" href="js/tabulator/dist/css/tabulator_simple.min.css" />	
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">						
+</head>
+<body id="theBody" onload="startVoice()">
+<div id="manageGameFrame">	
+	<img id="backbtn" src="images/back.png" class="hvr-backward" onclick="backSelect()">		
+	<img id="logo" src="images/logo.png">	
+	<div>
+	<img id="newGameScbtn" src="images/newGameSc.png" class="hvr-rotate" onclick="newGameFile()">	
+	<img id="newGameFilebtn" src="images/newGameFile.png" class="hvr-rotate" onclick="document.getElementById('filePath').click()">			
+	</div>
+ 		<input type='file' title="Select game" value="Select game" style="display: none;" id="filePath" onclick="btnSound()" onchange="getGameFileManage()">
+
+ 	<div style="display: none;" id="dataFrame">
+ 	<table id="gameDetails">
+ 		<tbody>
+ 		<tr>
+ 			<td id="gameDetailsLable">Game Name</td>
+ 			<td id=""><p id="gameNameId" contenteditable="true"></p></td>
+ 		</tr>
+ 		<tr>
+ 			<td id="gameDetailsLable">Game Duration (Secs)</td>
+ 			<td><p id="gameTime" contenteditable="true"></p></td>
+ 		</tr>
+ 		<tr>
+ 			<td id="gameDetailsLable">Lives</td>
+ 			<td><p id="gameLivesId" contenteditable="true"></p></td>
+ 		</tr>
+ 		<tr>
+ 			<td id="gameDetailsLable">Read Question</td>
+ 			<td id="gameAudioConfig"><label class="switch"> 
+			  	<input type="checkbox" id="audioCheck" onchange="audioCheck()">
+			  	<span class="slider round"></span>Enable Audio
+				</label>
+			</td>
+ 		</tr> 		
+ 		</tbody>
+ 	</table>
+ 	<!-- <p style="margin: 0px">Tip: Do not add more than 6 lives</p> -->			
+	<div id="objectsTable"></div>
+	<div><img id="addRowbtn" src="images/addQues.png" class="hvr-grow" onclick="addRow()"></div>	
+	<img id="genFilebtn" src="images/genFile.png" class="hvr-grow" onclick="saveFile()">		
+	</div>
+</div>
+			
+</body>
+</html>

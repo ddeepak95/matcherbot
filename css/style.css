@@ -1,0 +1,498 @@
+@font-face {
+  font-family: Blinker-Regular;
+  src: url(../font/Blinker-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: Blinker-Bold;
+  src: url(../font/Blinker-Bold.ttf) format('truetype');
+}
+
+
+#theBody
+{
+  overflow-y: overlay;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: #fff568;  
+  font-family: Blinker-Regular,sans-serif;
+  background-image: url(../images/credit.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 200px;
+  background-position: bottom;    
+}
+
+#backbtn
+{
+  width: 12%;
+  margin: 50px 0px 60px 0px;  
+  float: left;
+}
+
+#gameFrame, #selectFrame
+{
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+
+#manageGameFrame
+{
+  width: 90%;
+  height: 100%;
+  margin: auto;
+}
+
+#logo
+{
+	margin: 40px 0px 30px 0px;
+	width: 40%;
+}
+#chooseGame
+{
+	display: none;
+}
+
+#chooseGameBtn
+{
+	cursor: pointer;
+	width: 30%;
+}
+
+.chooseGameDiv
+{
+	margin:0px 0px 15px 0px;
+}
+
+#showGameName
+{
+	font-size: 2em;
+	color: #f60707;
+}
+#closeGame
+{
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+	float: right;
+}
+
+/*Modal CSS - Start*/
+
+.modal {
+  display: none; /* Hidden by default */
+  position: absolute; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: scroll; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  text-align: -webkit-center;
+}
+
+/* The Close Button */
+.closeModal {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closeModal:hover,
+.closeModal:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*Modal CSS - End*/
+
+/*Gamedata Table - Start*/
+#gameDataTable {
+  /*font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;*/
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#gameNameModal
+{
+  font-size: 2em;
+  margin: 0px;
+  color: #f60707;
+}
+
+#gameDetailsModal
+{
+  margin: 0px 0px 4px 0px;
+  font-size: 1.1em;
+  color: #aaa;
+}
+
+#gameDetailsModal span
+{
+  color: #515151;
+}
+
+#gameDataTable td, #gameDataTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#viewGameInfoBtn
+{
+	cursor: pointer;
+	position: relative;
+	width: 15%;
+    bottom: 5px;
+    left: 6px;
+}
+
+#beginGame
+{
+	cursor: pointer;
+  width: 30%;
+	/*transform: scale(0.5);*/
+	margin: 20px 0px 0px 0px;	
+}
+#beginGame:hover
+{
+	/*transform: scale(0.6);*/
+}
+#gameDataTable tr:nth-child(even){background-color: #fbffd9;}
+
+/*#gameDataTable tr:hover {background-color: #ddd;}*/
+#gameDataTable thead
+{
+  background-color: #fff568;
+}
+
+#gameDataTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+/*Gamedata Table - End*/
+
+#scoreDiv
+{
+  height: 100px;
+  overflow: hidden;
+}
+
+#gameFrame #logo, #manageGameFrame #logo
+{
+  width: 40%;
+  margin: 42px 0px 4px 0px;
+  position: relative;
+  left: 20px;
+}
+
+#gameFrame #logo
+{
+  margin: 20px 0px 2px 0px;
+}
+
+#timerCircle
+{
+  margin: 40px 0px 20px 0px;
+  height: 60px;
+  width: 60px;
+  background-color: #509b5e;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#timer
+{
+  color: #fff568;
+  font-size: 1.5em;
+  margin: 15px 0px 0px 0px;
+  cursor: default;
+}
+
+#ques
+{
+  font-family: Blinker-Bold;
+  font-size: 5em;
+  color: #515151;
+  margin: 0px 0px 5px 0px;
+}
+
+#hint
+{
+  margin: 0px;
+  height: 10px;
+  font-size: 1.3em;
+  opacity: 0.75;
+}
+
+#score
+{
+  font-size: 3em;
+  color: #dd6747;
+  margin: 20px 0px 40px 0px;
+  cursor: default;
+}
+
+#gameFrame #closeGame
+{
+  margin: 44px 20px 4px 0px;
+}
+
+#gameFrame #gameName
+{
+  cursor: default;
+  font-family: Blinker-Bold;
+  font-size: 2.5em;
+  text-transform: uppercase;
+  margin: 5px 0px 10px 0px;
+  color: #ffe400;
+  text-shadow: 0px 3px 0px rgba(178, 9, 9, 0.30);
+}
+
+#gameFrame #startGameBtn
+{
+  width: 30%;
+  cursor: pointer;
+  margin-top: 80px;
+}
+
+#restrtbtn, #endbtn
+{
+  width: 20%;
+  /*position: absolute;*/
+  margin: 5px 5px 5px 5px;
+  cursor: pointer;
+}
+
+#resultboard #playAgainbtn
+{
+  width: 30%;
+  cursor: pointer;
+  margin: 20px 0px 0px 0px;
+}
+
+#resultmessage
+{
+  font-size: 1.2em;
+  color: #515151;
+  margin: 40px 0px 0px 0px;
+}
+
+#scoreMessage
+{
+  font-size:2em;
+  color: #515151;
+  margin: 0px 0px 40px 0px;  
+}
+
+#scorePoint
+{
+  font-family: Blinker-Bold;
+}
+
+#gameFrame #answer
+{
+  visibility: none;
+  position: relative;
+}
+
+#newGameScbtn, #newGameFilebtn
+{
+  width: 25%;
+  cursor: pointer; 
+  margin: 20px 10px; 
+}
+#gameDetails
+{
+  width: 90%;
+  border-spacing: 0px 10px;
+}
+
+#gameDetailsLable
+{
+  width: 40%;
+  text-align: right;
+  padding:0px 10px 0px 0px; 
+}
+
+#gameNameId, #gameTime, #gameLivesId
+{
+  background-color: #ffffff;
+  border: solid 1px #000;
+  margin: 0px;
+  height: 30px;
+  float: left;
+  width: 100%;
+  text-align: left;
+  line-height:30px;
+  padding: 0px 0px 0px 5px;
+}
+
+.tabulator
+{
+  border: 1px solid #000;
+}
+
+#addRowbtn
+{
+  width: 15%;
+  cursor: pointer;
+  display: block;
+  margin: 5px auto;
+}
+
+#genFilebtn
+{
+  margin: 40px 0px 110px 0px;
+  width: 35%;
+  cursor: pointer;
+}
+
+#credit
+{
+  position: absolute;
+  bottom: 20px;
+}
+
+#lifeDiv
+{
+  width: 80%;
+  position: absolute;
+}
+
+.life
+{
+  float: right;
+  position: relative;
+  top: -10px;
+  padding-left: 5px; 
+}
+
+#gameAudioConfig
+{
+  text-align: left;
+}
+
+#footer
+{
+  position: fixed;
+  left: 0;
+  bottom: 40px;
+  width: 100%;
+}
+
+#keyColor
+{
+  color: #f60707;
+}
+    #snackbar {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -208px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 25px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      bottom: 30px;
+    }
+
+    #snackbar.show {
+      visibility: visible;
+      -webkit-animation: fadein 0.5s;
+      animation: fadein 0.5s;
+    }
+
+    @-webkit-keyframes fadein {
+      from {
+        bottom: 0;
+        opacity: 0;
+      }
+      to {
+        bottom: 30px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadein {
+      from {
+        bottom: 0;
+        opacity: 0;
+      }
+      to {
+        bottom: 30px;
+        opacity: 1;
+      }
+    }
+    #reload
+    {
+      cursor: pointer;
+      color: red;
+    }
+
+.add-button {
+  background-color: white; 
+  color: black; 
+  font-family: inherit;
+  border: 2px solid #a08733;
+  padding: 10px 32px;
+  border-radius: 60px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.add-button:hover {
+  background-color: #a08733;
+  color: white;
+}
+.alert {
+  padding: 20px;
+  background-color: #cfaf47;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 42px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+a
+{
+  color: #06d3eb;
+}

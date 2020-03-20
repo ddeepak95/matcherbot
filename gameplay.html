@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title id="gamePageTitle"></title>
+    <!-- <script type="text/javascript" src="js/mespeak/mespeak.js"></script>	 -->
+    <script src="/js/artyom.window.min.js"></script>		
+	<script src="/js/selectgame.js"></script>
+	<script src="/js/gamescript.js"></script>	
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />	
+	<link rel="stylesheet" type="text/css" href="/css/hover-min.css" />	
+	<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">		
+</head>
+<body onload="startVoice()" id="theBody">
+<div id="gameFrame" class="cursorNull">
+	<img id="closeGame" class="hvr-rotate" src="images/close.png" onclick="exitGame()">	
+	<img id="logo" src="images/logo.png">
+	<h2 id="gameName"></h2>
+	<img src style="display: none;" onerror="gameInit()">	
+	<div id="game_div">
+		<div id="game" style="display: none">
+			<div id="lifeDiv"></div>
+			<span id="timerCircle"><p id="timer"></p></span>
+			<p id="ques"></p>
+			<p id="hint"></p>
+				<div id="scoreDiv">	
+				<p id="score"></p>
+				</div>	
+			<img id="restrtbtn" src="images/restrtgame.png" class="hvr-rotate" onclick="restartgame()">	
+			<img id="endbtn" src="images/endgame.png" class="hvr-rotate" onclick="endgame()">							
+		</div>
+		<img id="startGameBtn" src="images/strtgame.png" class="hvr-grow" onclick="startgame()">		
+		<div id="resultboard" style="display: none">
+			<p id="resultmessage"></p>
+			<p id="scoreMessage">Your score is <span id="scorePoint"></span>.</p>
+			<img id="playAgainbtn" src="images/playagain.png" class="hvr-grow" onclick="playAgain()">				
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<p id="keyHint">[Press <span id="keyColor">SPACE</span> to start game]</p>
+</div>	
+</body>
+</html>
