@@ -23,7 +23,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
 	<meta name="theme-color" content="#cfaf47"/>
 	<meta property="og:title" content="Matcherbot">
-	<meta property="og:description" content="Check out Matcherbot, a quizzing game based on Key Mapping. It can be best played with physical key tools like Makey Makey. You can create infinite number of games on your own. Works best on Desktop with Chrome browser">
+	<meta property="og:description" content="MatcherBot is a quiz-based games platform using which one can create and play their own quizzes. Unlike traditional quizzes, the quizzing with MatcherBot comes with a twist. In MatcherBot, the real-world physical objects are the answer choices.">
 	<meta property="og:image" content="images/matcherbot-icon-310.png">
 	<meta property="og:url" content="https://matcherbot.online/">	
 	<meta name="apple-touch-icon" sizes="152x152" href="/images/matcherbot-icon-152.png">
@@ -38,7 +38,7 @@
 </div>	
 <div id="selectFrame">	
 	<img id="logo" src="images/logo.png" ondblclick="generateGame()">
-	<p>New to the game? Check out the <a href="https://www.instructables.com/id/Play-With-MatcherBot/" target="_blank">Instructions</a>!</a></p>
+	<p id="instructionNote">New to the game? Check out the <a href="https://www.instructables.com/id/Play-With-MatcherBot/" target="_blank">Instructions</a>!</a></p>
 	<!-- The Modal -->
 	<div id="myModal" class="modal">
 
@@ -47,9 +47,9 @@
 	    <span class="closeModal">&times;</span>
 	    <p title="Game Name" id="gameNameModal"></p>	    
 	    <p id="gameDetailsModal">
-	    	- Game Duration: <span title="Game Duration" id="gameTimeModal"></span> - 
-	    	Lives: <span id="gameLivesModal"></span> - 
-	    	Read questions: <span id="gameAudioModal"></span> - 
+	    	Game Duration: <span title="Game Duration" id="gameTimeModal"></span> | 
+	    	Lives: <span id="gameLivesModal"></span> |  
+	    	Read questions: <span id="gameAudioModal"></span>
 	    </p>
 	    <div id="objectsTable"></div>
 	  </div>
@@ -74,8 +74,7 @@
 
 <div id="footer">	
 	<div id="snackbar">A new version of this app is available. <a id="reload">Click here</a> to update.</div>
-	<p><a href="https://www.instructables.com/id/Play-With-MatcherBot/" target="_blank">Instructions</a> | <a href="/game_data/Common_Items_demo.json" download>Demo Game File</a> | <a href="https://github.com/ddeepak95/matcherbot" target="_blank">GitHub</a></p>
-	<p>Works best with Google Chrome Desktop</p>
+	<p><a href="/game_data/Common_Items_demo.json" download>Demo Game File</a> | <a href="https://github.com/ddeepak95/matcherbot" target="_blank">GitHub</a></p>
 </div>
 <script src="js/main.js"></script>
 </body>

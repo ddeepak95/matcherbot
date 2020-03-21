@@ -1,5 +1,5 @@
 var gData;
-var template={"gameName":"Enter Game Name","gameDuration":30,"gameLives":3,"gameAudio":true,"gameData":[{"question":"Enter Question","hint":"","key":"Select Key","answer":"Type some instruction"}]}
+var template={"gameName":"","gameDuration":30,"gameLives":3,"gameAudio":true,"gameData":[{"question":"Enter Question","hint":"","key":"Select Key","answer":""}]}
 function getGameFileManage()
 {
     btnSound();
@@ -35,12 +35,10 @@ var gName, nameId, duration;
 function showTableData()
 {	
 	document.getElementById("dataFrame").style.display = null;		
-	console.log(gData);
     duration= document.getElementById("gameTime");
     nameId= document.getElementById("gameNameId");
     livesId= document.getElementById("gameLivesId");
-    audioId= document.getElementById("audioCheck");        
-    console.log(gData.gameName);    
+    audioId= document.getElementById("audioCheck");           
     nameId.innerHTML = gData.gameName;	
     duration.innerHTML = gData.gameDuration;
     livesId.innerHTML = gData.gameLives; 
@@ -85,14 +83,139 @@ function saveFile()
 	tempGameDuration=duration.innerText;
 	tempGameLives=livesId.innerText;
 	tempGameAudio=audioId.checked;		
-	console.log(tempGameName,tempGameDuration);
 	var tableData=table.getData();
-	var stringGameData=JSON.stringify(tableData);
-	tempData='{"gameName":"'+tempGameName+'","gameDuration":'+tempGameDuration+',"gameLives":'+tempGameLives+',"gameAudio":'+tempGameAudio+',"gameData":'+stringGameData+'}';
-	console.log(tempData);
-	var blob = new Blob([tempData],{type:"application/json"});
-	saveAs(blob, tempGameName+".json");
+	validateData=dataValidation(tempGameName, tempGameDuration, tempGameLives, tableData);
+	if (validateData=="Success")
+	{
+		document.getElementById("validateMsg").style.color = "green";
+		document.getElementById("validateMsg").innerHTML = "Questions Validation Successful!";
+		var stringGameData=JSON.stringify(tableData);
+		tempData='{"gameName":"'+tempGameName+'","gameDuration":'+tempGameDuration+',"gameLives":'+tempGameLives+',"gameAudio":'+tempGameAudio+',"gameData":'+stringGameData+'}';
+		var blob = new Blob([tempData],{type:"application/json"});
+		saveAs(blob, tempGameName+".json");
+	}
+	else
+	{
+		document.getElementById("validateMsg").style.color = "red";		
+		document.getElementById("validateMsg").innerHTML = '<strong>'+"Questions validation failed: "+'</strong>'+'<br>'+qErrorstr+'<br>'+kErrorstr+'<br>'+nameErrorstr+'<br>'+durationErrorstr+'<br>'+livesErrorstr;		
+		console.log(validateData)
+	}
+
 }
+var qErrorIndex=[]
+var kErrorIndex=[]
+var errorCounter=[]
+var qErrorstr, kErrorstr, nameErrorstr, durationErrorstr, livesErrorstr;
+function dataValidation(gamename, gameduration, gamelives, datafromtable)
+{
+	console.log("Data Validation Started");
+	errorCounter=[]
+	checkName(gamename);
+	checkDuration(gameduration);
+	checkLives(gamelives);
+	var data=datafromtable;
+	console.log(data);
+	// var quesError=indexOfAll(data,"Enter Question");
+	indexOfqError(data,"");
+	if (qErrorIndex.length<1)
+	{
+		qErrorstr = "";
+	}
+	else
+	{
+		qErrorstr = "Invalid question format in the following rows: "+qErrorIndex.join(', ');		
+	}
+	
+	indexOfkError(data,"Select Key");	
+	if (kErrorIndex.length<1)
+	{
+		kErrorstr = "";
+	}
+	else
+	{
+		kErrorstr = "Key not selected in the following rows: "+kErrorIndex.join(', ');			
+	}
+	console.log(qErrorstr);
+	console.log(kErrorstr);
+	if(errorCounter.length < 1)
+	{
+		var validationResult="Success";
+		return(validationResult)
+	}
+	else
+	{
+		var validationResult="Failure";
+		return(validationResult)
+	}			
+
+}
+
+function checkName(game)
+{
+	if (game==="")
+	{
+		nameErrorstr="Enter Valid Game Name!";
+		errorCounter.push(1);
+		return(nameErrorstr)
+	}
+	else
+	{
+		nameErrorstr="";
+	}
+}
+
+function checkDuration(game)
+{
+	if (isNaN(game))
+	{
+		durationErrorstr="Enter Valid Duration in Numbers!";
+		errorCounter.push(1);
+		return(durationErrorstr)
+	}
+	else
+	{
+		durationErrorstr="";
+	}
+}
+function checkLives(game)
+{
+	if (isNaN(game))
+	{
+		livesErrorstr="Enter Valid Lives in Numbers!";
+		errorCounter.push(1);
+		return(livesErrorstr)
+	}
+	else
+	{
+		livesErrorstr="";
+	}
+}
+
+function indexOfqError(array, searchItem) {
+	qErrorIndex=[]
+	for (i=0;i<array.length;i++) {
+	  if (array[i].question == searchItem) {
+	  	qErrorIndex.push(i+1);
+	  	errorCounter.push(1);
+	  }
+	}
+	  if (array[0].question == "Enter Question") {
+	  	qErrorIndex.unshift(1);
+	  	errorCounter.push(1);
+	  }	
+}
+function indexOfkError(array, searchItem) {
+	kErrorIndex=[]
+	for (i=0;i<array.length;i++) {
+	  if (array[i].key == searchItem) {
+	  	kErrorIndex.push(i+1);
+	  	errorCounter.push(1);
+	  }
+	}
+}
+
+
+
 function audioCheck()
 {
 	var audio=document.getElementById("audioCheck").checked;

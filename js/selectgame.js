@@ -34,7 +34,6 @@ function getGameFile()
 
         function onReaderLoad(event)
         {
-            console.log(event.target.result);
             try
             {
                 gData = JSON.parse(event.target.result);
@@ -43,7 +42,6 @@ function getGameFile()
             {
                 alert("Invalid File");
             }
-            console.log("Game Name "+gData.gameName);
             document.getElementById("showGameName").innerHTML = gData.gameName;
             localStorage.setItem('gameName', gData.gameName);        
             localStorage.setItem('gameDuration', gData.gameDuration);

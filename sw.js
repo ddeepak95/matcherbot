@@ -1,4 +1,4 @@
-var cacheName = 'matcherbotv2.0.3';
+var cacheName = 'matcherbotv3.0.1';
 var filesToCache = [
   '/',
   '/index.html',
